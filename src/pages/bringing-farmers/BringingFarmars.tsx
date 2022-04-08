@@ -19,7 +19,6 @@ import RankingBox from "./RankingBox";
 import Countdown from "react-countdown";
 import { useLocation } from "react-router";
 import { ReactComponent as Tractor } from "../../assets/tractor.svg";
-import { QuantityPicker } from "react-qty-picker";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
@@ -374,7 +373,7 @@ export default function BringingFarmars() {
         </Box>
       </Box>
 
-      <Box className="abt_sec" mt={8} position={"relative"}>
+      <Box id="abt_sec" className="abt_sec" mt={8} position={"relative"}>
         <Container maxWidth="lg">
           <Grid container spacing={2} textAlign={"center"}>
             <Grid item xs={12}>
@@ -464,6 +463,7 @@ export default function BringingFarmars() {
       </Box>
 
       <Box
+        id="MintSc"
         className="become_farmer"
         sx={{
           backgroundColor: "#1F1E17",
@@ -711,7 +711,7 @@ export default function BringingFarmars() {
         </Container>
       </Box>
 
-      <Box className="ecosystem_sec" mt={8} position="relative">
+      <Box id="Ecosystem" className="ecosystem_sec" mt={8} position="relative">
         <Container maxWidth="lg">
           <Grid container spacing={8} justifyContent="center" alignItems="center" flexDirection={{ xs: "column-reverse", md: "row" }}>
             <Grid item xs={12} md={6} width="100%">
@@ -780,7 +780,8 @@ export default function BringingFarmars() {
       </Box>
 
       <Box
-        className="ecosystem_sec"
+        id="Tokenomics"
+        className="tokenomics_sec"
         mt={8}
         position="relative"
         sx={{
@@ -966,6 +967,7 @@ export default function BringingFarmars() {
         </Container>
       </Box>
       <Box
+        id="RaritySc"
         className="green_waves"
         sx={{
           backgroundColor: "#fff",
@@ -1025,7 +1027,7 @@ export default function BringingFarmars() {
         </Container>
       </Box>
 
-      <Element name="RoadmapSc">
+      <Element id="RoadmapSc" name="RoadmapSc">
         <Box className="roadmap_man">
           <Container maxWidth="lg">
             <Grid container spacing={1}>

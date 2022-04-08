@@ -1,44 +1,44 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
-import { Icon } from '@iconify/react';
-import menu2Fill from '@iconify/icons-eva/arrowhead-right-outline';
-import menu2FillLeft from '@iconify/icons-eva/arrowhead-left-outline';
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { Icon } from "@iconify/react";
+import menu2Fill from "@iconify/icons-eva/arrowhead-right-outline";
+import menu2FillLeft from "@iconify/icons-eva/arrowhead-left-outline";
 
 // material
-import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, Button, Stack, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { alpha, experimentalStyled as styled } from "@material-ui/core/styles";
+import { Box, Button, Stack, AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
 // components
 // import { useWallet } from '@binance-chain/bsc-use-wallet';
-import AccountPopover from './Account';
-import Connect from './Connect';
-import Logo from 'components/Logo';
-import LogoSmall from 'components/LogoSmall';
-import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'redux/store';
+import AccountPopover from "./Account";
+import Connect from "./Connect";
+import Logo from "components/Logo";
+import LogoSmall from "components/LogoSmall";
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "redux/store";
 
-import { ProductState } from '../../@types/products';
+import { ProductState } from "../../@types/products";
 // import useWeb3 from 'hooks/useWeb3';
-import useWalletModal from './Wallet/useWalletModal';
-import { Link } from 'react-scroll';
-import MenuIcon from '@material-ui/icons/Menu';
-import { useCashback, useMysteryBoxAvax } from 'hooks/useContract';
-import { useSnackbar } from 'notistack';
-import InfoIcon from '@material-ui/icons/Info';
-import axios from 'axios';
-import Popover from '@mui/material/Popover';
-import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-import MediaQuery from 'react-responsive';
+import useWalletModal from "./Wallet/useWalletModal";
+import { Link } from "react-scroll";
+import MenuIcon from "@material-ui/icons/Menu";
+import { useCashback, useMysteryBoxAvax } from "hooks/useContract";
+import { useSnackbar } from "notistack";
+import InfoIcon from "@material-ui/icons/Info";
+import axios from "axios";
+import Popover from "@mui/material/Popover";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
+import MediaQuery from "react-responsive";
 
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
-import { useWeb3React } from '@web3-react/core';
-import CloseIcon from '@mui/icons-material/Close';
-import useAuth from 'hooks/useAuth';
-import Web3 from 'web3';
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
+import { useWeb3React } from "@web3-react/core";
+import CloseIcon from "@mui/icons-material/Close";
+import useAuth from "hooks/useAuth";
+import Web3 from "web3";
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
@@ -51,10 +51,10 @@ const optionsCursorTrueWithMargin = {
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
   zIndex: 9999,
-  boxShadow: 'none',
-  backdropFilter: 'inherit',
-  WebkitBackdropFilter: 'inherit',
-  borderBottom: '1px solid',
+  boxShadow: "none",
+  backdropFilter: "inherit",
+  WebkitBackdropFilter: "inherit",
+  borderBottom: "1px solid",
   borderColor: theme.palette.grey[200],
   backgroundColor: alpha(theme.palette.background.default, 1),
   // [theme.breakpoints.up("lg")]: {
@@ -64,20 +64,20 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   minHeight: APPBAR_MOBILE,
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up("lg")]: {
     minHeight: APPBAR_DESKTOP,
     padding: theme.spacing(0, 5),
   },
 }));
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: '#fff',
-    color: 'rgba(0, 0, 0, 0.87)',
+    backgroundColor: "#fff",
+    color: "rgba(0, 0, 0, 0.87)",
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(0),
-    border: '1px solid #dadde9',
+    border: "1px solid #dadde9",
     p: {
-      fontSize: '12px',
+      fontSize: "12px",
     },
   },
 }));
@@ -90,7 +90,7 @@ const Transition = React.forwardRef(function Transition(
   },
   ref: React.Ref<unknown>
 ) {
-  return <Slide direction='up' ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
 // ----------------------------------------------------------------------
@@ -130,7 +130,7 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
   // console.log(' this is console from header >>>>>>', mystryBoxContract);
 
   useEffect(() => {
-    document.body.classList.toggle('sidebar-open', isOpen);
+    document.body.classList.toggle("sidebar-open", isOpen);
   }, [isOpen]);
   //for menu
   const [isActive, setActive] = useState(false);
@@ -148,7 +148,7 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       const getReflectionBalance = await mystryBoxContract.getReflectionBalances({ from: account });
       console.log(getReflectionBalance);
       setReward(Number((getReflectionBalance / 1e18).toFixed(5)));
-      const response = await axios.get(ENDPOINT + 'getCashback/' + account);
+      const response = await axios.get(ENDPOINT + "getCashback/" + account);
       setCashback(Number(response?.data?.data?.cashback));
 
       // const response = await axios.get(ENDPOINT + 'getCashback/' + account);
@@ -157,7 +157,7 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       const cashbackDetails = await cashbackContract.cashback(account);
       const isClaimed = await cashbackContract.isClaimed(account);
 
-      setCashback(isClaimed ? 0 : Number(Web3.utils.fromWei(cashbackDetails, 'ether')));
+      setCashback(isClaimed ? 0 : Number(Web3.utils.fromWei(cashbackDetails, "ether")));
     };
     if (account) {
       getData();
@@ -169,16 +169,16 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       let snackKey;
       try {
         const transaction = await mystryBoxContract.claimRewards();
-        snackKey = enqueueSnackbar('Reward Claiming is in Progress', {
-          variant: 'info',
+        snackKey = enqueueSnackbar("Reward Claiming is in Progress", {
+          variant: "info",
           preventDuplicate: true,
           persist: true,
         });
         await transaction.wait();
         closeSnackbar(snackKey);
         setLoading(false);
-        enqueueSnackbar('Reward claimed Successfully', {
-          variant: 'info',
+        enqueueSnackbar("Reward claimed Successfully", {
+          variant: "info",
         });
         setTimeout(() => {
           window.location.reload();
@@ -186,8 +186,8 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       } catch (err) {
         closeSnackbar(snackKey);
         setLoading(false);
-        enqueueSnackbar('Error while claiming Reward', {
-          variant: 'error',
+        enqueueSnackbar("Error while claiming Reward", {
+          variant: "error",
         });
       }
       // await mystryBoxContract.methods
@@ -219,7 +219,7 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       //   });
       // });
     } else {
-      alert('Please Connect Wallet');
+      alert("Please Connect Wallet");
     }
   };
 
@@ -228,16 +228,16 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       let snackKey;
       try {
         const transaction = await cashbackContract.claim({ from: account });
-        snackKey = enqueueSnackbar('Cashback Claiming is in Progress', {
-          variant: 'info',
+        snackKey = enqueueSnackbar("Cashback Claiming is in Progress", {
+          variant: "info",
           preventDuplicate: true,
           persist: true,
         });
         await transaction.wait();
         closeSnackbar(snackKey);
         setLoading(false);
-        enqueueSnackbar('Cashback claimed Successfully', {
-          variant: 'info',
+        enqueueSnackbar("Cashback claimed Successfully", {
+          variant: "info",
         });
         setTimeout(() => {
           window.location.reload();
@@ -245,8 +245,8 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       } catch (err) {
         closeSnackbar(snackKey);
         setLoading(false);
-        enqueueSnackbar('Error while claiming Cashback', {
-          variant: 'error',
+        enqueueSnackbar("Error while claiming Cashback", {
+          variant: "error",
         });
       }
       // await cashbackContract.methods
@@ -278,7 +278,7 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       //     });
       //   });
     } else {
-      alert('Please Connect Wallet');
+      alert("Please Connect Wallet");
     }
   };
 
@@ -297,14 +297,14 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
   return (
     <RootStyle>
       <ToolbarStyle>
-        <Box sx={{ marginLeft: '0px', marginRight: 'auto' }}>
-          <Box className='d_logo'>
-            <a href='https://app.treedefi.com'>
+        <Box sx={{ marginLeft: "0px", marginRight: "auto" }}>
+          <Box className="d_logo">
+            <a href="https://app.treedefi.com">
               <Logo />
             </a>
           </Box>
-          <Box className='m_logo'>
-            <a href='https://app.treedefi.com'>
+          <Box className="m_logo">
+            <a href="https://app.treedefi.com">
               <LogoSmall />
             </a>
           </Box>
@@ -329,57 +329,58 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
         {/* <Box sx={{ flexGrow: 1 }} /> */}
 
         <Button
-          variant='text'
+          variant="text"
           onClick={toggleClass}
-          className='mnicon_btn'
+          className="mnicon_btn"
           sx={{
             padding: 0,
-            minWidth: '0',
-            marginRight: '10px',
-            border: 'none',
-          }}>
-          <MenuIcon sx={{ fontSize: '40px', verticalAlign: 'middle' }} />
+            minWidth: "0",
+            marginRight: "10px",
+            border: "none",
+          }}
+        >
+          <MenuIcon sx={{ fontSize: "40px", verticalAlign: "middle" }} />
         </Button>
 
-        <Box className={isActive ? 'show sc_header' : 'sc_header'}>
-          <Box className='mdlmenu'>
-            <Box className='mdlmenu_inn'>
-              <Link to='FeaturesSc' activeClass='active' spy={true} smooth={true} offset={-50} duration={500}>
+        <Box className={isActive ? "show sc_header" : "sc_header"}>
+          <Box className="mdlmenu">
+            <Box className="mdlmenu_inn">
+              <Link to="abt_sec" activeClass="active" spy={true} smooth={true} duration={500}>
                 About
               </Link>
-              <Link to='MintSc' spy={true} smooth={true} offset={-50} duration={500}>
+              <Link to="MintSc" spy={true} smooth={true} duration={500}>
                 Mint
               </Link>
-              <a href='https://marketplace.kalao.io/collection/0xc1c2e7e45212ccec186e00aaa829fc2891cac808' target='_blank'>
+              <a href="https://marketplace.kalao.io/collection/0xc1c2e7e45212ccec186e00aaa829fc2891cac808" target="_blank">
                 Market
               </a>
-              <Link to='Ecosystem' spy={true} smooth={true} offset={-50} duration={500}>
-                Tellus
+              <Link to="Ecosystem" spy={true} smooth={true} duration={500}>
+                Ecosystem
               </Link>
-              <Link to='Tokenomics' spy={true} smooth={true} offset={-50} duration={500}>
+              <Link to="Tokenomics" spy={true} smooth={true} duration={500}>
                 Tokenomics
               </Link>
-              <Link to='RaritySc' spy={true} smooth={true} offset={-50} duration={500}>
+              <Link to="RaritySc" spy={true} smooth={true} duration={500}>
                 Rarity
               </Link>
-              <Link to='RoadmapSc' spy={true} smooth={true} offset={-50} duration={500}>
+              <Link to="RoadmapSc" spy={true} smooth={true} duration={500}>
                 Roadmap
               </Link>
-              <Link to='ClaimSc' spy={true} smooth={true} offset={-50} duration={500}>
+              <Link to="ClaimSc" spy={true} smooth={true} duration={500}>
                 Faq
               </Link>
             </Box>
 
-            <Box className='clmbx'>
-              <Box className='clm_box'>
-                <Typography component='h4'>Rewards: {reward.toFixed(5)}</Typography>
-                <Button variant='contained' color='primary' className='defbtn defbtn_rspv' onClick={claimReward} disabled={reward <= 0}>
+            <Box className="clmbx">
+              <Box className="clm_box">
+                <Typography component="h4">Rewards: {reward.toFixed(5)}</Typography>
+                <Button variant="contained" color="primary" className="defbtn defbtn_rspv" onClick={claimReward} disabled={reward <= 0}>
                   Claim
                 </Button>
               </Box>
-              <Box className='clm_box'>
-                <Typography component='h4'>CASHBACK: {cashback.toFixed(5)}</Typography>
-                <Button variant='contained' color='primary' className='defbtn defbtn_rspv' onClick={claimCashback} disabled={cashback <= 0}>
+              <Box className="clm_box">
+                <Typography component="h4">CASHBACK: {cashback.toFixed(5)}</Typography>
+                <Button variant="contained" color="primary" className="defbtn defbtn_rspv" onClick={claimCashback} disabled={cashback <= 0}>
                   Claim &nbsp;
                 </Button>
                 <HtmlTooltip
@@ -388,11 +389,12 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
                       <Typography sx={{ p: 1 }}>
                         Treedefi holders might be eligible for cashback
                         <br />
-                        <a href='https://docs.defifarmers.net/defi-farmers/treedefi-benefits'>Check our docs</a>
+                        <a href="https://docs.defifarmers.net/defi-farmers/treedefi-benefits">Check our docs</a>
                       </Typography>
                     </React.Fragment>
-                  }>
-                  <InfoIcon className='tlltp_btn' />
+                  }
+                >
+                  <InfoIcon className="tlltp_btn" />
                 </HtmlTooltip>
               </Box>
             </Box>
@@ -445,13 +447,13 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
               </HtmlTooltip>
             </Box> */}
 
-            <Stack direction='row' spacing={{ xs: 0.5, sm: 1.5 }}>
+            <Stack direction="row" spacing={{ xs: 0.5, sm: 1.5 }}>
               <Button
-                variant='contained'
-                color='primary'
-                className='defbtn defbtn_rspv bat_none'
-                sx={{ textTransform: 'uppercase' }}
-                href='/defi-farmers'
+                variant="contained"
+                color="primary"
+                className="defbtn defbtn_rspv bat_none"
+                sx={{ textTransform: "uppercase" }}
+                href="/defi-farmers"
                 // onClick={() => {
                 //   onPresentChainModal();
                 // }}
@@ -459,17 +461,17 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
                 My Defi farmers
               </Button>
               <Button
-                variant='contained'
-                color='primary'
-                className='defbtn defbtn_rspv bat_none'
-                sx={{ textTransform: 'uppercase' }}
+                variant="contained"
+                color="primary"
+                className="defbtn defbtn_rspv bat_none"
+                sx={{ textTransform: "uppercase" }}
                 // onClick={() => {
                 //   onPresentChainModal();
                 // }}
               >
-                <Box component='img' alt={''} src={'/static/icons/networks/avax.jpg'} height='20px' sx={{ pr: 1 }} className='bat_none' />
-                {'  '}
-                {'  Avalanche'}
+                <Box component="img" alt={""} src={"/static/icons/networks/avax.jpg"} height="20px" sx={{ pr: 1 }} className="bat_none" />
+                {"  "}
+                {"  Avalanche"}
               </Button>
               {account && <AccountPopover account={account} logout={logout} />}
               {!account && <Connect account={account} login={login} logout={logout} toggle={toggle} />}
@@ -484,22 +486,22 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
       </ToolbarStyle>
 
       <MediaQuery maxWidth={1279}>
-        <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} aria-describedby='alert-dialog-slide-description'>
-          <Box className='modal-close-x' sx={{ display: 'flex', justifyContent: 'flex-end', pt: '10px' }}>
+        <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} aria-describedby="alert-dialog-slide-description">
+          <Box className="modal-close-x" sx={{ display: "flex", justifyContent: "flex-end", pt: "10px" }}>
             <Button onClick={handleClose}>
               <CloseIcon />
             </Button>
           </Box>
           <DialogContent>
-            <Box className='clm_box' sx={{ mb: '10px' }} justifyContent='space-between'>
-              <Typography component='h4'>Rewards: {reward.toFixed(5)}</Typography>
-              <Button variant='contained' color='primary' className='defbtn defbtn_rspv' onClick={claimReward} disabled={reward <= 0}>
+            <Box className="clm_box" sx={{ mb: "10px" }} justifyContent="space-between">
+              <Typography component="h4">Rewards: {reward.toFixed(5)}</Typography>
+              <Button variant="contained" color="primary" className="defbtn defbtn_rspv" onClick={claimReward} disabled={reward <= 0}>
                 Claim
               </Button>
             </Box>
-            <Box className='clm_box' sx={{ mb: '20px' }} justifyContent='space-between'>
-              <Typography component='h4'>CASHBACK: {cashback.toFixed(5)}</Typography>
-              <Button variant='contained' color='primary' className='defbtn defbtn_rspv' disabled>
+            <Box className="clm_box" sx={{ mb: "20px" }} justifyContent="space-between">
+              <Typography component="h4">CASHBACK: {cashback.toFixed(5)}</Typography>
+              <Button variant="contained" color="primary" className="defbtn defbtn_rspv" disabled>
                 Claim &nbsp;
               </Button>
               <HtmlTooltip
@@ -508,15 +510,16 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
                     <Typography sx={{ p: 1 }}>
                       Treedefi holders might be eligible for cashback
                       <br />
-                      <a href='https://docs.defifarmers.net/defi-farmers/treedefi-benefits'>Check our docs</a>
+                      <a href="https://docs.defifarmers.net/defi-farmers/treedefi-benefits">Check our docs</a>
                     </Typography>
                   </React.Fragment>
-                }>
-                <InfoIcon className='tlltp_btn' />
+                }
+              >
+                <InfoIcon className="tlltp_btn" />
               </HtmlTooltip>
             </Box>
 
-            <Stack direction='column' spacing={{ xs: 0.5, sm: 1.5 }}>
+            <Stack direction="column" spacing={{ xs: 0.5, sm: 1.5 }}>
               {account && <AccountPopover account={account} logout={logout} />}
               {!account && <Connect account={account} login={login} logout={logout} toggle={toggle} />}
             </Stack>
