@@ -764,7 +764,7 @@ export default function BringingFarmars() {
                               fontWeight: "400",
                               mb: 2,
                               fontSize: {
-                                xs: "14px",
+                                xs: "13px",
                                 xl: "16px",
                               },
                             }}

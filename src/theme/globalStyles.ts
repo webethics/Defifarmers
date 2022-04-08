@@ -2350,7 +2350,7 @@ const GlobalStyles = withStyles((theme) => ({
         font: "normal normal 300 19px/28px Kanit !important",
       },
       ".clm_box h4": {
-        fontSize: "0.675rem",
+        fontSize: "0.575rem",
       },
       ".css-6uzovv-MuiButtonBase-root-MuiButton-root": {
         fontSize: "0.675rem",
