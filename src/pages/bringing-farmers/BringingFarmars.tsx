@@ -764,7 +764,7 @@ export default function BringingFarmars() {
                               mb: 2,
                               fontSize: {
                                 xs: "14px",
-                                lg: "16px",
+                                xl: "16px",
                               },
                             }}
                           >

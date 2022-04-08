@@ -1710,6 +1710,10 @@ const GlobalStyles = withStyles((theme) => ({
       fontWeight: 500,
       letterSpacing: "1px",
       transition: "all 0.2s ease-out",
+      [theme.breakpoints.down(1755)]: {
+        margin: "0 10px",
+        fontSize: "14px",
+      },
     },
     ".mdlmenu a:hover, .mdlmenu a.active": {
       color: "#4CA146",
@@ -2387,6 +2391,10 @@ const GlobalStyles = withStyles((theme) => ({
       ".clm_box": {
         display: "none",
       },
+      ".mdlmenu a": {
+        fontSize: "14px",
+        margin: "0 10px",
+      },
     },
     "@media screen and (min-width: 992px)": {
       ".filterButton": { position: "absolute", right: "40px", top: "5px" },
@@ -2629,7 +2637,7 @@ const GlobalStyles = withStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        alignItems: "flex-end",
+        alignItems: "flex-start",
         paddingRight: "20px",
       },
       ".clm_box": {
@@ -2652,7 +2660,7 @@ const GlobalStyles = withStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        alignItems: "flex-end",
+        alignItems: "flex-start",
       },
       ".clmbx .clm_box": {
         marginRight: 0,
