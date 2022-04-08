@@ -18,7 +18,7 @@ import axios from "axios";
 import RankingBox from "./RankingBox";
 import Countdown from "react-countdown";
 import { useLocation } from "react-router";
-import { ReactComponent as Tractor } from "../../assets/tractor.svg";
+import { ReactComponent as Tractor } from "../../assets/tractor2.svg";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
