@@ -243,6 +243,7 @@ export default function BringingFarmars() {
       img: "/static/images/goal-pic-1.jpg",
       number: "1",
       title: "Eco\nSystem",
+      class: "red",
       description:
         "By holding a DeFi Farmer, you will have access to Sustainability clubs, places to vote and discuss sustainable actions to preserve our environment . DeFi Farmers is a spin-off project created by Treedefi, the eco-friendly DeFi protocol. Treedefi allows investors to have a real world impact.",
     },
@@ -250,6 +251,7 @@ export default function BringingFarmars() {
       img: "/static/images/goal-pic-2.jpg",
       number: "2",
       title: "Eco\nSystem",
+      class: "yellow",
       description:
         "By holding a DeFi Farmer, you will have access to Sustainability clubs, places to vote and discuss sustainable actions to preserve our environment . DeFi Farmers is a spin-off project created by Treedefi, the eco-friendly DeFi protocol. Treedefi allows investors to have a real world impact.",
     },
@@ -257,6 +259,7 @@ export default function BringingFarmars() {
       img: "/static/images/goal-pic-3.jpg",
       number: "3",
       title: "Eco\nSystem",
+      class: "blue",
       description:
         "By holding a DeFi Farmer, you will have access to Sustainability clubs, places to vote and discuss sustainable actions to preserve our environment . DeFi Farmers is a spin-off project created by Treedefi, the eco-friendly DeFi protocol. Treedefi allows investors to have a real world impact.",
     },
@@ -264,6 +267,7 @@ export default function BringingFarmars() {
       img: "/static/images/goal-pic-4.jpg",
       number: "4",
       title: "Eco\nSystem",
+      class: "orange",
       description:
         "By holding a DeFi Farmer, you will have access to Sustainability clubs, places to vote and discuss sustainable actions to preserve our environment . DeFi Farmers is a spin-off project created by Treedefi, the eco-friendly DeFi protocol. Treedefi allows investors to have a real world impact.",
     },
@@ -271,6 +275,7 @@ export default function BringingFarmars() {
       img: "/static/images/goal-pic-5.jpg",
       number: "5",
       title: "Eco\nSystem",
+      class: "green",
       description:
         "By holding a DeFi Farmer, you will have access to Sustainability clubs, places to vote and discuss sustainable actions to preserve our environment . DeFi Farmers is a spin-off project created by Treedefi, the eco-friendly DeFi protocol. Treedefi allows investors to have a real world impact.",
     },
@@ -278,6 +283,7 @@ export default function BringingFarmars() {
       img: "/static/images/goal-pic-6.jpg",
       number: "6",
       title: "Eco\nSystem",
+      class: "pink",
       description:
         "By holding a DeFi Farmer, you will have access to Sustainability clubs, places to vote and discuss sustainable actions to preserve our environment . DeFi Farmers is a spin-off project created by Treedefi, the eco-friendly DeFi protocol. Treedefi allows investors to have a real world impact.",
     },
@@ -306,7 +312,7 @@ export default function BringingFarmars() {
                 item
                 xs={12}
                 md={6}
-                maxWidth={{ md: "640px" }}
+                maxWidth={{ md: "660px" }}
                 sx={{
                   marginRight: {
                     md: 4,
@@ -323,8 +329,9 @@ export default function BringingFarmars() {
                       md: "2.8rem",
                       lg: "3.4rem",
                     },
-                    fontWeight: 600,
+                    fontWeight: 700,
                     lineHeight: 1.2,
+                    letterSpacing: "-.025em",
                   }}
                 >
                   Building Sustainability Clubs with DeFi Farmers
@@ -383,7 +390,17 @@ export default function BringingFarmars() {
         </Box>
       </Box>
 
-      <Box id="abt_sec" className="abt_sec" mt={8} position={"relative"}>
+      <Box
+        id="abt_sec"
+        className="abt_sec"
+        mt={8}
+        position={"relative"}
+        sx={{
+          backgroundImage: "url(/static/images/about_pattren.svg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom 30% left 5%",
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={2} textAlign={"center"}>
             <Grid item xs={12}>
@@ -407,7 +424,7 @@ export default function BringingFarmars() {
                     md: "2.8rem",
                     lg: "3.4rem",
                   },
-                  fontWeight: 600,
+                  fontWeight: 700,
                   lineHeight: 1.2,
                 }}
               >
@@ -477,10 +494,25 @@ export default function BringingFarmars() {
         className="become_farmer"
         sx={{
           backgroundColor: "#1F1E17",
+          position: "relative",
+          backgroundImage: "url(/static/images/corn.png)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom right",
+          backgroundSize: "10%",
+          "&::before": {
+            content: '""',
+            backgroundImage: "url(/static/images/mushroom.png)",
+            backgroundRepeat: "no-repeat",
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "10%",
+            height: "73%",
+          },
         }}
       >
         <Container maxWidth="xl">
-          <Grid container spacing={4} py={7} alignItems={"center"} justifyContent={"center"} textAlign={{ xs: "center", md: "left" }}>
+          <Grid container spacing={4} py={8} alignItems={"center"} justifyContent={"center"} textAlign={{ xs: "center", md: "left" }}>
             <Grid item xs={12} md={5}>
               <Box
                 sx={{
@@ -506,7 +538,7 @@ export default function BringingFarmars() {
                       lg: "3.4rem",
                     },
                     mb: 2,
-                    fontWeight: 600,
+                    fontWeight: 700,
                     lineHeight: 1.2,
                   }}
                 >
@@ -601,7 +633,7 @@ export default function BringingFarmars() {
                       lg: "9rem",
                     },
                     mb: 4,
-                    fontWeight: 600,
+                    fontWeight: 700,
                     lineHeight: 1,
                     textAlign: "center",
                   }}
@@ -619,33 +651,65 @@ export default function BringingFarmars() {
                       sx={{
                         "&:hover": {
                           ".overlay": {
-                            width: "100%",
-                            height: "100%",
-                            left: "0",
-                            bottom: "0",
+                            right: "0",
+                            top: "0",
                           },
                           ".description_holder": {
                             transform: "scale(1) translateY(65px)",
                             opacity: 1,
-                            transitionDelay: "0.4s",
                           },
                           ".icon": {
                             display: "none",
+                          },
+                        },
+                        ".red": {
+                          backgroundColor: "#E5233D",
+                          "button:hover": {
+                            color: "#E5233D",
+                          },
+                        },
+                        ".yellow": {
+                          backgroundColor: "#F89D2A",
+                          "button:hover": {
+                            color: "#F89D2A",
+                          },
+                        },
+                        ".blue": {
+                          backgroundColor: "#27BFE6",
+                          "button:hover": {
+                            color: "#27BFE6",
+                          },
+                        },
+                        ".orange": {
+                          backgroundColor: "#F26A2E",
+                          "button:hover": {
+                            color: "#F26A2E",
+                          },
+                        },
+                        ".green": {
+                          backgroundColor: "#4CA146",
+                          "button:hover": {
+                            color: "#4CA146",
+                          },
+                        },
+                        ".pink": {
+                          backgroundColor: "#EF402D",
+                          "button:hover": {
+                            color: "#EF402D",
                           },
                         },
                       }}
                     >
                       <img src={`${item.img}?w=248&fit=crop&auto=format`} srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`} alt={item.title} loading="lazy" />
                       <Box
-                        className="overlay"
+                        className={`${item.class} overlay`}
                         sx={{
-                          width: "118px",
-                          height: "145px",
                           backgroundColor: "#E5233D",
                           padding: "0.8rem 1.2rem",
                           position: "absolute",
-                          left: "20px",
-                          bottom: "20px",
+                          left: "0",
+                          bottom: "0",
+                          margin: "20px",
                           color: "#fff",
                           transition: "all 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)",
                           overflow: "hidden",
@@ -751,7 +815,7 @@ export default function BringingFarmars() {
                     md: "2.8rem",
                     lg: "3.4rem",
                   },
-                  fontWeight: 600,
+                  fontWeight: 700,
                   lineHeight: 1.2,
                 }}
               >
@@ -811,7 +875,7 @@ export default function BringingFarmars() {
                     lg: "3.4rem",
                   },
                   color: "#fff",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   lineHeight: 1.2,
                 }}
               >
@@ -894,7 +958,7 @@ export default function BringingFarmars() {
                     lg: "3.4rem",
                   },
 
-                  fontWeight: 600,
+                  fontWeight: 700,
                   lineHeight: 1.2,
                 }}
               >
@@ -937,7 +1001,7 @@ export default function BringingFarmars() {
                     lg: "3.4rem",
                   },
 
-                  fontWeight: 600,
+                  fontWeight: 700,
                   lineHeight: 1.2,
                 }}
               >
@@ -1038,7 +1102,15 @@ export default function BringingFarmars() {
       </Box>
 
       <Element id="RoadmapSc" name="RoadmapSc">
-        <Box className="roadmap_man">
+        <Box
+          className="roadmap_man"
+          sx={{
+            backgroundRepeat: "no-repeat",
+            backgroundImage: "url(/static/images/roadmap_circle_bg.svg)",
+            backgroundPosition: "top left",
+            backgroundSize: "14%",
+          }}
+        >
           <Container maxWidth="lg">
             <Grid container spacing={1}>
               <Grid item xs={12}>
@@ -1146,9 +1218,12 @@ export default function BringingFarmars() {
       <Element name="ClaimSc">
         <Box
           className="accordidn_main"
-          // data-aos='fade-up'
-          // data-aos-anchor-placement='center-bottom'
-          // data-aos-duration='2500'
+          sx={{
+            backgroundRepeat: "no-repeat",
+            backgroundImage: "url(/static/images/fag_pattren.svg)",
+            backgroundPosition: "bottom right",
+            backgroundSize: "16%",
+          }}
         >
           <Container maxWidth="lg">
             <Grid container spacing={3} justifyContent={"center"}>

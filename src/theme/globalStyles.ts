@@ -177,9 +177,9 @@ const GlobalStyles = withStyles((theme) => ({
       color: theme.palette.primary.main,
     },
     ".defbtn": {
-      borderRadius: "35px",
+      borderRadius: "6px",
       fontWeight: "400",
-      padding: "6px 15px",
+      padding: ".59rem 1.2rem",
       letterSpacing: "0.3px",
     },
     ".defbtn .MuiSvgIcon-root": {
@@ -1507,7 +1507,7 @@ const GlobalStyles = withStyles((theme) => ({
     },
     ".roadmap_man": {
       padding: "80px 0",
-      background: "#fff",
+      backgroundColor: "#fff",
     },
     ".rtdimg_prnt": {
       position: "relative",
@@ -1590,12 +1590,13 @@ const GlobalStyles = withStyles((theme) => ({
     // },
     ".clm_box": {
       display: "flex",
-      border: "1px solid #3BB78F",
-      borderRadius: "25px",
+      border: "1px solid #4CA146",
+      borderRadius: "6px",
       alignItems: "center",
       marginRight: "12px",
       textTransform: "uppercase",
       position: "relative",
+      overflow: "hidden",
     },
     ".clm_box h4": {
       color: "#000000",
@@ -1638,7 +1639,7 @@ const GlobalStyles = withStyles((theme) => ({
     },
     ".accordidn_main": {
       padding: "50px 0",
-      background: "#FFFFFF",
+      backgroundColor: "#FFFFFF",
     },
 
     ".accordin_h2": {
@@ -1711,7 +1712,7 @@ const GlobalStyles = withStyles((theme) => ({
       transition: "all 0.2s ease-out",
     },
     ".mdlmenu a:hover, .mdlmenu a.active": {
-      color: "#3BB78F",
+      color: "#4CA146",
     },
     ".main_ratity": {
       background: "url(/static/images/rarity_bg_img.png) no-repeat 0 0",
@@ -2923,6 +2924,11 @@ const GlobalStyles = withStyles((theme) => ({
       fontWeight: 400,
       padding: "0.55rem 3rem ",
       fontSize: "16px",
+      "&:hover": {
+        backgroundColor: "#fff",
+        color: "#4CA146",
+        border: "1px solid #fff",
+      },
     },
 
     ".quantity-picker .quantity-modifier, .quantity-picker .quantity-modifier:hover": {

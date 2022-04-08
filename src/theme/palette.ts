@@ -52,8 +52,8 @@ declare module "@material-ui/core" {
 const PRIMARY = {
   lighter: "#e7f3f0",
   light: "#5BE584",
-  main: "#6EA93E",
-  dark: "#007B55",
+  main: "#4CA146",
+  dark: "#2b8025",
   mlight: "#8EC761",
   darker: "#005249",
 };

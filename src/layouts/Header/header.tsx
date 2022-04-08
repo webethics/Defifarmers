@@ -39,6 +39,7 @@ import { useWeb3React } from "@web3-react/core";
 import CloseIcon from "@mui/icons-material/Close";
 import useAuth from "hooks/useAuth";
 import Web3 from "web3";
+
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
