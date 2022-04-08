@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import fileFill from "@iconify/icons-eva/file-fill";
-import fileTypePdf from "@iconify/icons-vscode-icons/file-type-pdf";
+import fileTypePdf from "@iconify/icons-vscode-icons/file-type-pdf2";
 import fileTypeAi2 from "@iconify/icons-vscode-icons/file-type-ai2";
 import fileTypeWord from "@iconify/icons-vscode-icons/file-type-word";
 import fileTypeExcel from "@iconify/icons-vscode-icons/file-type-excel";
@@ -26,9 +26,7 @@ export function getFileType(fileUrl: string = "") {
 }
 
 export function getFileName(fileUrl: string) {
-  return fileUrl
-    .substring(fileUrl.lastIndexOf("/") + 1)
-    .replace(/\.[^/.]+$/, "");
+  return fileUrl.substring(fileUrl.lastIndexOf("/") + 1).replace(/\.[^/.]+$/, "");
 }
 
 export function getFileFullName(fileUrl: string) {

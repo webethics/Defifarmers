@@ -2956,11 +2956,6 @@ const GlobalStyles = withStyles((theme) => ({
       paddingTop: "1%",
       bottom: "10%",
       right: "20%",
-      fallbacks: [
-        {
-          animation: "road 5s linear infinite",
-        },
-      ],
     },
 
     ".special_text_bg": {

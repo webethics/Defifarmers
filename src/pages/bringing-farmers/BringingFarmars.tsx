@@ -57,8 +57,8 @@ export default function BringingFarmars() {
   }
 
   function handleValueChange(e) {
-    const x = number(e.target.value);
-
+    const x = Number(e.target.value);
+    console.log(x);
     if (isNaN(x) || x < 1 || x > Qty) {
     } else {
       setCount(x);
@@ -217,21 +217,21 @@ export default function BringingFarmars() {
   useEffect(() => {
     const getData = async () => {
       const itemSold = await mystryBoxContract.itemsSold();
-      setSold(number(itemSold));
+      setSold(Number(itemSold));
       const lastid = await mystryBoxContract.lastId();
-      setTotal(number(lastid));
+      setTotal(Number(lastid));
       const dailyLimit = await mystryBoxContract.dailyLimit();
 
       const priceValue = await mystryBoxContract.price();
-      setPrice(number(priceValue));
+      setPrice(Number(priceValue));
 
       if (account) {
         setQty(0);
         const currentDay = await mystryBoxContract.currentDay();
         const finalLimit = await mystryBoxContract.dailyPurchase(account, currentDay);
-        setQty(currentTimeStamp < 1640782800000 ? 20 : number(dailyLimit) - number(finalLimit));
+        setQty(currentTimeStamp < 1640782800000 ? 20 : Number(dailyLimit) - Number(finalLimit));
       } else {
-        setQty(currentTimeStamp < 1640782800000 ? 20 : number(dailyLimit));
+        setQty(currentTimeStamp < 1640782800000 ? 20 : Number(dailyLimit));
       }
     };
 
@@ -302,7 +302,17 @@ export default function BringingFarmars() {
         <Box className="banner-content">
           <Container maxWidth="xl">
             <Grid container spacing={3} py={7} alignItems={"center"} justifyContent={"space-between"} textAlign={{ xs: "center", md: "left" }}>
-              <Grid item xs={12} md={6} maxWidth={{ md: "640px" }} mr={{ md: 4 }}>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                maxWidth={{ md: "640px" }}
+                sx={{
+                  marginRight: {
+                    md: 4,
+                  },
+                }}
+              >
                 <Typography
                   component="h2"
                   sx={{

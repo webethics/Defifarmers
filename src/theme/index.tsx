@@ -1,11 +1,7 @@
 import { useMemo, ReactNode } from "react";
 // material
 import { CssBaseline } from "@material-ui/core";
-import {
-  ThemeProvider,
-  ThemeOptions,
-  createTheme,
-} from "@material-ui/core/styles";
+import { ThemeProvider, ThemeOptions, createTheme } from "@material-ui/core/styles";
 import StyledEngineProvider from "@material-ui/core/StyledEngineProvider";
 // hooks
 import useSettings from "../hooks/useSettings";
@@ -30,9 +26,7 @@ export default function ThemeConfig({ children }: ThemeConfigProps) {
 
   const themeOptions: ThemeOptions = useMemo(
     () => ({
-      palette: isLight
-        ? { ...palette.light, mode: "light" }
-        : { ...palette.dark, mode: "dark" },
+      palette: isLight ? { ...palette.light, mode: "light" } : { ...palette.dark, mode: "dark" },
       shape,
       typography,
       breakpoints,

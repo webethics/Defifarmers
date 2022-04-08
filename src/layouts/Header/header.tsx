@@ -345,28 +345,28 @@ export default function Header({ onOpenSidebar }: HeaderProps) {
         <Box className={isActive ? "show sc_header" : "sc_header"}>
           <Box className="mdlmenu">
             <Box className="mdlmenu_inn">
-              <Link to="abt_sec" activeClass="active" spy={true} smooth={true} duration={500}>
+              <Link to="abt_sec" activeClass="active" spy={true} offset={-70} smooth={true} duration={500}>
                 About
               </Link>
-              <Link to="MintSc" spy={true} smooth={true} duration={500}>
+              <Link to="MintSc" spy={true} smooth={true} offset={-70} duration={500}>
                 Mint
               </Link>
               <a href="https://marketplace.kalao.io/collection/0xc1c2e7e45212ccec186e00aaa829fc2891cac808" target="_blank">
                 Market
               </a>
-              <Link to="Ecosystem" spy={true} smooth={true} duration={500}>
+              <Link to="Ecosystem" spy={true} smooth={true} offset={-70} duration={500}>
                 Ecosystem
               </Link>
-              <Link to="Tokenomics" spy={true} smooth={true} duration={500}>
+              <Link to="Tokenomics" spy={true} smooth={true} offset={-70} duration={500}>
                 Tokenomics
               </Link>
-              <Link to="RaritySc" spy={true} smooth={true} duration={500}>
+              <Link to="RaritySc" spy={true} smooth={true} offset={-70} duration={500}>
                 Rarity
               </Link>
-              <Link to="RoadmapSc" spy={true} smooth={true} duration={500}>
+              <Link to="RoadmapSc" spy={true} smooth={true} offset={-70} duration={500}>
                 Roadmap
               </Link>
-              <Link to="ClaimSc" spy={true} smooth={true} duration={500}>
+              <Link to="ClaimSc" spy={true} smooth={true} offset={-70} duration={500}>
                 Faq
               </Link>
             </Box>
