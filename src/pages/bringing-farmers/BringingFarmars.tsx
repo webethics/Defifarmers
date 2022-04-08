@@ -503,6 +503,7 @@ export default function BringingFarmars() {
             content: '""',
             backgroundImage: "url(/static/images/mushroom.png)",
             backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
             position: "absolute",
             top: "0",
             left: "0",

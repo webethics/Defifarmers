@@ -1817,6 +1817,9 @@ const GlobalStyles = withStyles((theme) => ({
         margin: "0 10px",
         fontSize: "14px",
       },
+      ".clm_box h4": {
+        fontSize: "13px",
+      },
     },
     "@media screen and (max-width: 1500px)": {
       ".mdlmenu a": {
@@ -2970,16 +2973,22 @@ const GlobalStyles = withStyles((theme) => ({
       paddingTop: "1%",
       bottom: "10%",
       right: "20%",
+      [theme.breakpoints.down(1199)]: {
+        width: "21%",
+      },
+      [theme.breakpoints.down(767)]: {
+        width: "25%",
+      },
     },
 
     ".special_text_bg": {
       backgroundImage: 'url("/static/images/special_text_bg.jpg")',
+      backgroundSize: "cover",
       backgroundPosition: "50% 50%",
       backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
       backgroundClip: "text",
       textFillColor: "transparent",
-      webkitBackgroundClip: "text",
+      "-webkitBackgroundClip": "text",
       webkitTextFillColor: "transparent",
       webkitAnimationName: "masked-animation",
       animationName: "masked-animation",
